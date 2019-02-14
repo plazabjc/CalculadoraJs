@@ -1,5 +1,6 @@
 var calculadora = {
 	init: function () {
+		var display = document.getElementById("display");
 		var on = document.getElementById("on");
 		var sign = document.getElementById("sign");
 		var raiz = document.getElementById("raiz");
@@ -19,12 +20,88 @@ var calculadora = {
 		var punto = document.getElementById("punto");
 		var igual = document.getElementById("igual");
 		var suma = document.getElementById("mas");
+
+
+		//Eventos
+		btn_1.onclick = function(e){
+			if(display.textContent === "0"){
+				display.textContent = "1";
+			} else {
+				display.textContent = display.textContent + "1";
+			}	
+		}
+		btn_2.onclick = function(e){
+			if(display.textContent === "0"){
+				display.textContent = "2";
+			} else {
+				display.textContent = display.textContent + "2";
+			}
+		}
+		btn_3.onclick = function(e){
+			if(display.textContent === "0"){
+				display.textContent = "3";
+			} else {
+				display.textContent = display.textContent + "3";
+			}
+		}
+		btn_4.onclick = function(e){
+			if(display.textContent === "0"){
+				display.textContent = "4";
+			} else {
+				display.textContent = display.textContent + "4";
+			}
+		}
+		btn_5.onclick = function(e){
+			if(display.textContent === "0"){
+				display.textContent = "5";
+			} else {
+				display.textContent = display.textContent + "5";
+			}
+		}
+		btn_6.onclick = function(e){
+			if(display.textContent === "0"){
+				display.textContent = "6";
+			} else {
+				display.textContent = display.textContent + "6";
+			}
+		}
+		btn_7.onclick = function(e){
+			if(display.textContent === "0"){
+				display.textContent = "7";
+			} else {
+				display.textContent = display.textContent + "7";
+			}
+		}
+		btn_8.onclick = function(e){
+			if(display.textContent === "0"){
+				display.textContent = "8";
+			} else {
+				display.textContent = display.textContent + "8";
+			}
+		}
+		btn_9.onclick = function(e){
+			if(display.textContent === "0"){
+				display.textContent = "9";
+			} else {
+				display.textContent = display.textContent + "9";
+			}
+		}
+		btn_0.onclick = function(e){
+			if (display.textContent !== "0"){
+				display.textContent = display.textContent + "0";
+			}
+		}
+
+		on.onclick = function(e){
+			display.textContent = "0";
+		}
 	
+
 
 		var presionarTecla = function(event) {
 		  // document.getElementsByClassName("tecla").style="width:50%;";
 		  // event.target es el elemento que disparo el evento
-		  event.target.style.transform = "scale(0.8)";
+		  event.target.style.transform = "scale(0.9)";
 		}
 
 		var levantarTecla = function(event) {
@@ -44,7 +121,7 @@ var calculadora = {
 			tecla.addEventListener("mouseup", levantarTecla)
 		}
 
-		
+
 
 	}
 }
