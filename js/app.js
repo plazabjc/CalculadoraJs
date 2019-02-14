@@ -95,6 +95,12 @@ var calculadora = {
 		on.onclick = function(e){
 			display.textContent = "0";
 		}
+
+		punto.onclick = function(e){
+			if(display.textContent.indexOf('.') === -1){
+				display.textContent = display.textContent + ".";
+			}
+		}
 	
 
 
