@@ -101,6 +101,18 @@ var calculadora = {
 				display.textContent = display.textContent + ".";
 			}
 		}
+
+		sign.onclick = function(e){
+			if (display.textContent === "0") {
+				return
+			} 
+
+			if(display.textContent.indexOf('-') === -1){
+				display.textContent = "-" + display.textContent;
+			} else {
+				display.textContent = display.textContent.substring(1);
+			}
+		}
 	
 
 
