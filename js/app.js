@@ -1,5 +1,6 @@
 var calculadora = {
 	init: function () {
+		var aux = "0";
 		var display = document.getElementById("display");
 		var on = document.getElementById("on");
 		var sign = document.getElementById("sign");
@@ -24,95 +25,109 @@ var calculadora = {
 
 		//Eventos
 		btn_1.onclick = function(e){
-			if(display.textContent === "0"){
-				display.textContent = "1";
+			if(aux === "0"){
+				aux = "1";
 			} else {
-				display.textContent = display.textContent + "1";
-			}	
+				aux = aux + "1";
+			}
+			display.textContent = aux.substring(0, 8)	
 		}
 		btn_2.onclick = function(e){
-			if(display.textContent === "0"){
-				display.textContent = "2";
+			if(aux === "0"){
+				aux = "2";
 			} else {
-				display.textContent = display.textContent + "2";
+				aux = aux + "2";
 			}
+			display.textContent = Number(aux).substring(0, 8)
 		}
 		btn_3.onclick = function(e){
-			if(display.textContent === "0"){
-				display.textContent = "3";
+			if(aux === "0"){
+				aux = "3";
 			} else {
-				display.textContent = display.textContent + "3";
+				aux = aux + "3";
 			}
+			display.textContent = aux.substring(0, 8)
 		}
 		btn_4.onclick = function(e){
-			if(display.textContent === "0"){
-				display.textContent = "4";
+			if(aux === "0"){
+				aux = "4";
 			} else {
-				display.textContent = display.textContent + "4";
+				aux = aux + "4";
 			}
+			display.textContent = aux.substring(0, 8)
 		}
 		btn_5.onclick = function(e){
-			if(display.textContent === "0"){
-				display.textContent = "5";
+			if(aux === "0"){
+				aux = "5";
 			} else {
-				display.textContent = display.textContent + "5";
+				aux = aux + "5";
 			}
+			display.textContent = aux.substring(0, 8)
 		}
 		btn_6.onclick = function(e){
-			if(display.textContent === "0"){
-				display.textContent = "6";
+			if(aux === "0"){
+				aux = "6";
 			} else {
-				display.textContent = display.textContent + "6";
+				aux = aux + "6";
 			}
+			display.textContent = aux.substring(0, 8)
 		}
 		btn_7.onclick = function(e){
-			if(display.textContent === "0"){
-				display.textContent = "7";
+			if(aux === "0"){
+				aux = "7";
 			} else {
-				display.textContent = display.textContent + "7";
+				aux = aux + "7";
 			}
+			display.textContent = aux.substring(0, 8)
 		}
 		btn_8.onclick = function(e){
-			if(display.textContent === "0"){
-				display.textContent = "8";
+			if(aux === "0"){
+				aux = "8";
 			} else {
-				display.textContent = display.textContent + "8";
+				aux = aux + "8";
 			}
+			display.textContent = aux.substring(0, 8)
 		}
 		btn_9.onclick = function(e){
-			if(display.textContent === "0"){
-				display.textContent = "9";
+			if(aux === "0"){
+				aux = "9";
 			} else {
-				display.textContent = display.textContent + "9";
+				aux = aux + "9";
 			}
+			display.textContent = aux.substring(0, 8)
 		}
 		btn_0.onclick = function(e){
-			if (display.textContent !== "0"){
-				display.textContent = display.textContent + "0";
+			if (aux !== "0"){
+				aux = aux + "0";
 			}
+			display.textContent = aux.substring(0, 8)
 		}
 
 		on.onclick = function(e){
-			display.textContent = "0";
+			aux = "0";
+			display.textContent = aux.substring(0, 8)
 		}
 
 		punto.onclick = function(e){
-			if(display.textContent.indexOf('.') === -1){
-				display.textContent = display.textContent + ".";
+			if(aux.indexOf('.') === -1){
+				aux = aux + ".";
 			}
 		}
 
 		sign.onclick = function(e){
-			if (display.textContent === "0") {
+			if (aux === "0") {
 				return
 			} 
 
-			if(display.textContent.indexOf('-') === -1){
-				display.textContent = "-" + display.textContent;
+			if(aux.indexOf('-') === -1){
+				aux = "-" + aux;
 			} else {
-				display.textContent = display.textContent.substring(1);
+				aux = aux.substring(1);
 			}
+			display.textContent = aux.substring(0, 8)
 		}
+
+
 	
 
 
