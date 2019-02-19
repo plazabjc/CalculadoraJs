@@ -1,5 +1,8 @@
 var calculadora = {
 	init: function () {
+		var operandoa;
+		var operandob;
+		var operacion;
 		var aux = "0";
 		var display = document.getElementById("display");
 		var on = document.getElementById("on");
@@ -38,7 +41,7 @@ var calculadora = {
 			} else {
 				aux = aux + "2";
 			}
-			display.textContent = Number(aux).substring(0, 8)
+			display.textContent = aux.substring(0, 8)
 		}
 		btn_3.onclick = function(e){
 			if(aux === "0"){
@@ -103,32 +106,57 @@ var calculadora = {
 			display.textContent = aux.substring(0, 8)
 		}
 
-		on.onclick = function(e){
-			aux = "0";
-			display.textContent = aux.substring(0, 8)
-		}
-
 		punto.onclick = function(e){
 			if(aux.indexOf('.') === -1){
 				aux = aux + ".";
+				display.textContent = aux.substring(0, 8);
 			}
 		}
 
 		sign.onclick = function(e){
-			if (aux === "0") {
-				return
-			} 
-
-			if(aux.indexOf('-') === -1){
+			if((aux.indexOf('-') === -1) && (aux !== "0")){
 				aux = "-" + aux;
-			} else {
+			} else if(aux !== "0") {
 				aux = aux.substring(1);
 			}
 			display.textContent = aux.substring(0, 8)
 		}
 
+		on.onclick = function(e){
+			aux = "0";
+			display.textContent = aux.substring(0, 8);
+			operandoa = 0;
+			operandob = 0;
+			operacion = "";
 
-	
+		}
+
+		suma.onclick = function(e){
+			operandoa = aux;
+			operacion = "+";
+			limpiar();
+		}
+		resta.onclick = function(e){
+			operandoa = aux;
+			operacion = "-";
+			limpiar();
+		}
+		multiplica.onclick = function(e){
+			operandoa = aux;
+			operacion = "*";
+			limpiar();
+		}
+		divide.onclick = function(e){
+			operandoa = aux;
+			operacion = "/";
+			limpiar();
+		}
+
+		igual.onclick = function(e){
+			operandob = aux;
+			resolver();
+		}
+
 
 
 		var presionarTecla = function(event) {
@@ -153,12 +181,47 @@ var calculadora = {
 			tecla.addEventListener("mousedown", presionarTecla)
 			tecla.addEventListener("mouseup", levantarTecla)
 		}
+	
 
+		function limpiar(){
+		aux = "0";
+		display.textContent = "";
+		}
 
+		function resetear() {
+			aux = "0";
+			display.textContent = "0";
+			operandoa = 0;
+			operandob = 0;
+			operacion = "";
+		}
+
+		function resolver(){
+			var res = 0;
+			switch(operacion){
+				case "+":
+					res = parseFloat(operandoa) + parseFloat(operandob);
+					break;
+
+				case "-":
+					res = parseFloat(operandoa) - parseFloat(operandob);
+					break;
+
+				case "*":
+					res = parseFloat(operandoa) * parseFloat(operandob);
+					break;
+
+				case "/":
+					res = parseFloat(operandoa) / parseFloat(operandob);
+					break;
+			}
+
+			resetear();
+			display.textContent = res.toString().substring(0, 8);
+		}
 
 	}
 }
-
 
 
 calculadora.init();
